@@ -72,7 +72,6 @@ endif
 -include $(FIXED_DEPS)
 
 $(BUILD_OBJ_DIR)/%.o:%.$(SRC_SUFFIX)
-	echo  $(LAST_DIR_NAME)
 ifneq ($(BUILD_OBJ_DIR), $(wildcard $(BUILD_OBJ_DIR)))
 	@mkdir -p $(BUILD_OBJ_DIR)
 endif
