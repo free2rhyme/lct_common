@@ -35,7 +35,9 @@ else
 CURR_BASE_DIR   := $(SRC_POST_PATH)
 endif
 
-BUILD_OBJ_DIR   := $(LCT_SVC_PRJ_ROOT)/build/obj/$(CURR_BASE_DIR)
+BUILD_OBJ_ROOT  := $(LCT_SVC_PRJ_ROOT)/build/obj
+
+BUILD_OBJ_DIR   := $(BUILD_OBJ_ROOT)/$(CURR_BASE_DIR)
 
 LIB_DIR         := $(LCT_SVC_PRJ_ROOT)/build/lib
 
@@ -80,17 +82,21 @@ endif
 	@echo "Finished building $@"
 	@echo " "
 
-clean:
+clean: cleanObj
+	rm -fr $(FIXED_TARGET_DIR)
+	rm -fr $(BUILD_OBJ_DIR)
+	rm -fr $(BUILD_OBJ_ROOT)
+	@echo " "
+
+cleanObj:
 	rm -fr $(BUILD_OBJ_DIR)/*
 	rm -f $(FIXED_OBJS)
 	rm -f $(FIXED_DEPS)
 	rm -f $(FIXED_TARGET)
-	rm -fr $(FIXED_TARGET_DIR)
-	rm -fr $(BUILD_OBJ_DIR)
 	@echo " "
 
-rebuild:clean all
+rebuild:cleanObj all
 
-.PHONY:clean rebuild
+.PHONY:clean cleanObj rebuild
 
 
