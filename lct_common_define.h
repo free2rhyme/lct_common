@@ -18,8 +18,7 @@
 
 #include "lct_error_code.h"
 
-static constexpr const char* const CONFIG_FILE_DEFAULT_PATH = "./config/lct_service_config.properties";
-static constexpr const char* const LOCAL_CONFIG_FILE_PATH = "./config/lct_service_config.properties";
+static constexpr const char* const CONFIG_FILE_DEFAULT_PATH = "./config/service.config";
 
 //#define log_trace()  std::cout << "ProcessId("<< getpid() <<")\t ThreadId(0X" << std::hex  << pthread_self() << ")\t" << std::dec <<  __FILE__ << "\t" << __LINE__ << "\t" << __PRETTY_FUNCTION__ << std::endl;
 //#define log_debug(x) std::cout << "ProcessId("<< getpid() <<")\t ThreadId(0X" << std::hex  << pthread_self() << ")\t" << std::dec <<  __FILE__ << "\t" << __LINE__ << "\t" << __PRETTY_FUNCTION__ << "\t" << #x << "(" << x << ")"<< std::endl;
